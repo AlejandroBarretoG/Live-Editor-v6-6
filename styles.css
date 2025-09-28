@@ -1,0 +1,153 @@
+/* --- ESTILOS GENERALES Y DE PANELES --- */
+.floating-panel {
+    resize: both;
+    overflow: hidden;
+    z-index: 10000;
+}
+.floating-panel.panel-compactado {
+    height: auto !important;
+    resize: none;
+}
+.floating-panel.panel-compactado .panel-content {
+    display: none;
+}
+.panel-header {
+    cursor: move !important;
+}
+/* Paneles no deben ser seleccionables por el inspector */
+.floating-panel, .floating-panel * {
+    cursor: default !important;
+}
+
+/* --- ESTILOS DEL INSPECTOR --- */
+.elemento-inspeccion-seleccionado {
+    outline: 2px dashed #f43f5e !important;
+    outline-offset: 2px;
+}
+body.inspector-activo, body.inspector-activo * {
+    cursor: crosshair;
+}
+#toggle-inspector-btn.active {
+    background-color: #a5b4fc;
+    color: white;
+}
+
+/* --- ESTILOS PARA LA VISTA DE ÁRBOL --- */
+#tree-view-root ul { padding-left: 1em; border-left: 1px solid #e5e7eb; }
+#tree-view-root li { list-style: none; position: relative; }
+#tree-view-root .tree-node { padding: 2px 4px; border-radius: 4px; cursor: pointer !important; display: flex; align-items: center; white-space: nowrap; }
+#tree-view-root .tree-node:hover { background-color: #f3f4f6; }
+#tree-view-root .tree-node.seleccionado { background-color: #fecaca; font-weight: bold; }
+#tree-view-root .toggle { width: 1em; height: 1em; display: inline-block; text-align: center; line-height: 1em; margin-right: 4px; font-family: monospace; font-weight: bold; border: 1px solid #ccc; border-radius: 2px; flex-shrink: 0; }
+#tree-view-root .toggle.collapsed::before { content: '+'; }
+#tree-view-root .toggle.expanded::before { content: '-'; }
+#tree-view-root ul.collapsed { display: none; }
+
+/* --- ESTILOS PARA EDITOR DE TABLAS --- */
+.resizable-table {
+    border-collapse: collapse;
+}
+.resizable-table td, .resizable-table th {
+    position: relative;
+}
+.resize-handlers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+.col-resize-handler {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+    pointer-events: all;
+    background: rgba(100, 100, 255, 0.0);
+    transition: background 0.2s;
+}
+.col-resize-handler:hover {
+    background: rgba(100, 100, 255, 0.3);
+}
+.row-resize-handler {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    cursor: row-resize;
+    pointer-events: all;
+    background: rgba(100, 100, 255, 0.0);
+    transition: background 0.2s;
+}
+.row-resize-handler:hover {
+    background: rgba(100, 100, 255, 0.3);
+}
+
+/* --- ESTILOS PARA EDITOR DE GRID --- */
+.grid-resize-handler-col {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+    pointer-events: all;
+    background: rgba(0, 128, 0, 0.0); /* Verde para diferenciar */
+    transition: background 0.2s;
+    z-index: 10;
+}
+.grid-resize-handler-col:hover {
+    background: rgba(0, 128, 0, 0.3);
+}
+.grid-resize-handler-row {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    cursor: row-resize;
+    pointer-events: all;
+    background: rgba(0, 128, 0, 0.0);
+    transition: background 0.2s;
+    z-index: 10;
+}
+.grid-resize-handler-row:hover {
+    background: rgba(0, 128, 0, 0.3);
+}
+
+/* --- ESTILOS PARA EDITOR DE FLEXBOX --- */
+.flex-resize-handler-col {
+    position: absolute;
+    top: 0;
+    right: -4px;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+    pointer-events: all;
+    background: rgba(255, 165, 0, 0.0); /* Naranja para diferenciar */
+    transition: background 0.2s;
+    z-index: 30;
+}
+.flex-resize-handler-col:hover {
+    background: rgba(255, 165, 0, 0.4);
+}
+.flex-resize-handler-row {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    cursor: row-resize;
+    pointer-events: all;
+    background: rgba(255, 165, 0, 0.0);
+    transition: background 0.2s;
+    z-index: 20;
+}
+.flex-resize-handler-row:hover {
+    background: rgba(255, 165, 0, 0.4);
+}
+
+/* --- ESTILOS PARA WIDGETS Y OTROS COMPONENTES --- */
+.widget-item { cursor: grab; transition: background-color 0.2s; }
+.widget-item:hover { background-color: #f0f9ff; }
+#main-content-wrapper.drag-over { outline: 2px dashed #22c55e; outline-offset: -4px; }
+.toggle-icon { transition: transform 0.2s ease-in-out; }
